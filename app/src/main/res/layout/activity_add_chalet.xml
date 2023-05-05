@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:autofillHints="chlaetiamge"
+    android:gravity="center"
+    android:importantForAutofill="no"
+    android:orientation="vertical"
+    android:padding="20dp"
+    tools:context=".AddChalet">
+
+
+    <EditText
+        android:id="@+id/EditName"
+        android:layout_width="380dp"
+        android:layout_height="60dp"
+        android:hint="Chalet Name"></EditText>
+
+    <EditText
+        android:id="@+id/EditPrice"
+        android:layout_width="370dp"
+        android:layout_height="60dp"
+        android:hint="Chalet Price"></EditText>
+
+    <EditText
+        android:id="@+id/EditDec"
+        android:layout_width="374dp"
+        android:layout_height="125dp"
+        android:hint="Chalet Description"></EditText>
+
+
+    <EditText
+        android:id="@+id/EditAddress"
+        android:layout_width="376dp"
+        android:layout_height="55dp"
+        android:hint="Chalet Address"></EditText>
+
+    <EditText
+        android:id="@+id/EditImageName"
+        android:layout_width="374dp"
+        android:layout_height="65dp"
+        android:hint="Picture Name"></EditText>
+
+
+    <ImageButton
+        android:id="@+id/image_button1"
+        android:layout_width="114dp"
+        android:layout_height="105dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="-30dp"
+        android:autofillHints="@string/appbar_scrolling_view_behavior"
+        android:contentDescription="Chalet pic"
+        android:onClick="openGalleries"
+        android:scaleType="centerCrop"
+        android:src="@drawable/imageplaceholder"></ImageButton>
+
+    <Button
+        android:id="@+id/AddButton"
+        android:layout_width="404dp"
+        android:layout_height="62dp"
+        android:layout_marginTop="50dp"
+        android:hint="add chalet"
+        android:text="Add"
+        android:textColor="#fff"
+        android:textStyle="bold"></Button>
+
+</LinearLayout>
