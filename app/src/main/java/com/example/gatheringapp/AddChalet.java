@@ -37,7 +37,10 @@ DataBaseHelper db ;
 
     ImageView objectImageView;
 
+
+
     private  static final int code_img = 100;
+   
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,6 +54,8 @@ DataBaseHelper db ;
         EditDec = (EditText)  findViewById(R.id.EditDec);
         EditImageName = (EditText) findViewById(R.id.EditImageName);
         pickImg = (ImageButton) findViewById(R.id.image_button1);
+
+
 
 
 
@@ -80,6 +85,7 @@ DataBaseHelper db ;
                 Chalet chalet = new Chalet(name , -1   ,description, address , Price , image , imageName );
              boolean added =   db.addChalet(chalet);
                 Toast.makeText(AddChalet.this , "Chalet added " + added, Toast.LENGTH_SHORT).show();
+
 
             }
         });
@@ -178,4 +184,6 @@ public static byte[] getBytes(Bitmap bitmap) {
 
         }
     }
+
+
 }

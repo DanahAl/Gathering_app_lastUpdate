@@ -28,6 +28,15 @@ public class DataBaseHelper extends SQLiteOpenHelper {
 
     public static final String image = " image";
 
+    public static final String DBNAME = "Login.db";
+    public static final String TABLENAME = "users";
+    public static final String name = "username";
+    public static final String pass = "password";
+    public static final String email = "emailAddress";
+    public static final String phone = "phoneNumber";
+
+
+
     private ByteArrayOutputStream objectOutputStream;
     byte[] imageBytes;
     Context context;
@@ -41,6 +50,8 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         String create_table = "CREATE TABLE" + chalet_table + "(" + chalet_ID + " INTEGER PRIMARY KEY," + chalet_name +
                 " Text ," + chalet_price + " INTEGER ," + CHALET_DECRIPTION + " Text ," + CHALET_ADDRESS + " Text ," + imageName + " Text ,"  + image+ " blob)";
 
+        db.execSQL("create Table " + TABLENAME + "(" + name + " TEXT primary key, " + pass + " TEXT " + email + " TEXT " + phone + " TEXT)");
+
         db.execSQL(create_table);
     }
 
@@ -50,8 +61,44 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         String delete_query = "drop table if exists "+chalet_table;
        db.execSQL(delete_query);
      onCreate(db);
+        db.execSQL("drop Table if exists " + TABLENAME);
 
     }
+
+    public Boolean insertData(String username, String password , String emailAddress , String phoneNumber ){
+        SQLiteDatabase MyDB = this.getWritableDatabase();
+        ContentValues contentValues= new ContentValues();
+        contentValues.put(name, username);
+        contentValues.put(pass, password);
+        contentValues.put(email, emailAddress);
+        contentValues.put(phone, phoneNumber);
+        long result = MyDB.insert(TABLENAME, null, contentValues);
+        if(result==-1) return false;
+        return true;
+    }
+
+
+    public Boolean checkUsername(String username) {
+        SQLiteDatabase MyDB = this.getWritableDatabase();
+        Cursor cursor = MyDB.rawQuery("Select * from " + TABLENAME + " where " + name + " = ?", new String[]{username});
+        if (cursor.getCount() > 0)
+            return true;
+
+        return false;
+    }
+
+    public Boolean checkUsernamePassword(String username, String password){
+        SQLiteDatabase MyDB = this.getWritableDatabase();
+        Cursor cursor = MyDB.rawQuery("Select * from " + TABLENAME + " where " + name + " = ? and " + pass + " = ?", new String[] {username,password});
+        if(cursor.getCount()>0)
+            return true;
+
+        return false;
+    }
+
+
+
+
 
 
     public boolean addChalet(Chalet chalet) {
@@ -76,16 +123,17 @@ public class DataBaseHelper extends SQLiteOpenHelper {
            return true;
     }
 
-    public boolean DeleteOne(Chalet chalet){
+    public boolean DeleteOne(Chalet chalet) {
         SQLiteDatabase db = this.getWritableDatabase();
-        String queryString= "Delete From " + chalet_table + " WHERE " + chalet_ID + " = " + chalet.getChalet_id() ;
+        String queryString = "Delete From " + chalet_table + " WHERE " + chalet_ID + " = " + chalet.getChalet_id();
         Cursor cursor = db.rawQuery(queryString, null);
-        if(cursor.moveToFirst()){
+        if (cursor.moveToFirst()) {
             return true;
-        } else{
+        } else {
             // nothing happens. no one is added.
             return false;
         }
+    }
 
 
 
@@ -201,6 +249,8 @@ public class DataBaseHelper extends SQLiteOpenHelper {
             Toast.makeText(context,e.getMessage(),Toast.LENGTH_SHORT).show();
 
         }
+
+
 
 
 
