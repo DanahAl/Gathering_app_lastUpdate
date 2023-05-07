@@ -96,9 +96,9 @@ DataBaseHelper db ;
                 }
 
                 if(name.equals("")||address.equals("")||description.equals("")||imageName.equals("")|| price.equals("") ||flag) {
-                    Toast.makeText(AddChalet.this, "Please enter all the fields and price as a Number!", Toast.LENGTH_SHORT).show();
+                   Toast.makeText(AddChalet.this, "Please enter all the fields and price as a Number!", Toast.LENGTH_SHORT).show();
 
-                }
+              }
 
 
                 else{
@@ -109,7 +109,7 @@ DataBaseHelper db ;
                 }
 
 
-
+//
 
             }
         });
