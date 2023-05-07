@@ -80,22 +80,14 @@ DataBaseHelper db ;
                 image = getBytes(bitmap);
 
 
+                String regex = "\\d+";
 
-                int intV;
-                boolean flag = false ;
-                try{
-
-                    intV = Integer.parseInt(price);
-                    flag = true;
-
-                }catch (Exception e){
-                    flag = false;
-                    Toast.makeText(AddChalet.this, "Here!", Toast.LENGTH_SHORT).show();
+                boolean flg = price.matches(regex);
 
 
-                }
 
-                if(name.equals("")||address.equals("")||description.equals("")||imageName.equals("")|| price.equals("") ||flag) {
+
+                if(name.equals("")||address.equals("")||description.equals("")||imageName.equals("")||!flg) {
                    Toast.makeText(AddChalet.this, "Please enter all the fields and price as a Number!", Toast.LENGTH_SHORT).show();
 
               }
