@@ -28,12 +28,12 @@ public class DataBaseHelper extends SQLiteOpenHelper {
 
     public static final String image = " image";
 
-    public static final String DBNAME = "Login.db";
-    public static final String TABLENAME = "users";
-    public static final String name = "username";
-    public static final String pass = "password";
-    public static final String email = "emailAddress";
-    public static final String phone = "phoneNumber";
+   // public static final String DBNAME = "Login.db";
+    public static final String TABLENAME = " users";
+    public static final String name = " username";
+    public static final String pass = " password";
+    public static final String email = " emailAddress";
+    public static final String phone = " phoneNumber";
 
 
 
@@ -49,10 +49,10 @@ public class DataBaseHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         String create_table = "CREATE TABLE" + chalet_table + "(" + chalet_ID + " INTEGER PRIMARY KEY," + chalet_name +
                 " Text ," + chalet_price + " INTEGER ," + CHALET_DECRIPTION + " Text ," + CHALET_ADDRESS + " Text ," + imageName + " Text ,"  + image+ " blob)";
-
-        db.execSQL("create Table " + TABLENAME + "(" + name + " TEXT primary key, " + pass + " TEXT " + email + " TEXT " + phone + " TEXT)");
-
         db.execSQL(create_table);
+
+        db.execSQL("create Table " + TABLENAME + "(" + name + " TEXT primary key, " + pass + " TEXT , " + email + " TEXT ," + phone + " TEXT)");
+
     }
 
     @Override

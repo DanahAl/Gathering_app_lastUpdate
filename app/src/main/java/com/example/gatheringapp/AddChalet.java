@@ -68,7 +68,7 @@ DataBaseHelper db ;
             public void onClick(View v) {
 
                String name = EditName.getText().toString();
-               int Price =Integer.parseInt (EditPrice.getText().toString());
+               String price =EditPrice.getText().toString();
                String address = EditAddress.getText().toString();
                String description = EditDec.getText().toString();
 
@@ -81,10 +81,34 @@ DataBaseHelper db ;
 
 
 
+                int intV;
+                boolean flag = false ;
+                try{
 
-                Chalet chalet = new Chalet(name , -1   ,description, address , Price , image , imageName );
-             boolean added =   db.addChalet(chalet);
-                Toast.makeText(AddChalet.this , "Chalet added " + added, Toast.LENGTH_SHORT).show();
+                    intV = Integer.parseInt(price);
+                    flag = true;
+
+                }catch (Exception e){
+                    flag = false;
+                    Toast.makeText(AddChalet.this, "Here!", Toast.LENGTH_SHORT).show();
+
+
+                }
+
+                if(name.equals("")||address.equals("")||description.equals("")||imageName.equals("")|| price.equals("") ||flag) {
+                    Toast.makeText(AddChalet.this, "Please enter all the fields and price as a Number!", Toast.LENGTH_SHORT).show();
+
+                }
+
+
+                else{
+                    Chalet chalet = new Chalet(name , -1   ,description, address , Integer.parseInt(price) , image , imageName );
+                    boolean added =   db.addChalet(chalet);
+                    Toast.makeText(AddChalet.this , "Chalet added " + added, Toast.LENGTH_SHORT).show();
+
+                }
+
+
 
 
             }
