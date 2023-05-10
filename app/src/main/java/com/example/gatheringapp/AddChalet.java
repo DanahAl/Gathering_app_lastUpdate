@@ -17,12 +17,14 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.Toast;
 import android.view.View;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
+import java.util.ArrayList;
 import java.util.stream.Stream;
 
 public class AddChalet extends AppCompatActivity {
@@ -30,6 +32,9 @@ DataBaseHelper db ;
     EditText EditName , EditPrice , EditDec , EditAddress , EditImageName ;
     Button AddButton;
     ImageButton pickImg;
+
+    ListView chaletList;
+    Button AddButton1;
 
     ImageView ImagesView;
     byte[] image = null;
@@ -54,11 +59,6 @@ DataBaseHelper db ;
         EditDec = (EditText)  findViewById(R.id.EditDec);
         EditImageName = (EditText) findViewById(R.id.EditImageName);
         pickImg = (ImageButton) findViewById(R.id.image_button1);
-
-
-
-
-
 
         AddButton = (Button)  findViewById(R.id.AddButton);
 
@@ -105,6 +105,18 @@ DataBaseHelper db ;
 
             }
         });
+
+        chaletList =(ListView) findViewById(R.id.chaletList1);
+
+        db = new DataBaseHelper(this);
+
+        ArrayList<Chalet> chalets = db.getAllChalets();
+
+        // AddButton1 = (Button) findViewById(R.id.AddButton);
+
+
+        ChaletAdaptor chaletAdaptor = new ChaletAdaptor(this , R.layout.item_chalet , chalets);
+
 
     }
 

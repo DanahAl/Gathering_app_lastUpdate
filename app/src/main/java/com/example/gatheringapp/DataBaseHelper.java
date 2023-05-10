@@ -152,10 +152,10 @@ public class DataBaseHelper extends SQLiteOpenHelper {
 
        if(cursor.moveToFirst()) {
            do{
-
+/*
 
                int ChaletID = cursor.getColumnIndex(chalet_ID);
-               int CID = Integer.parseInt(cursor.getString(ChaletID));
+              int CID = Integer.parseInt(cursor.getString(ChaletID));
 
                    int indexName = cursor.getColumnIndex(chalet_name);
                   String name = cursor.getString(indexName);
@@ -173,18 +173,25 @@ public class DataBaseHelper extends SQLiteOpenHelper {
                int indexImageName = cursor.getColumnIndex(imageName)  ;
                String imageName = cursor.getString(indexImageName) ;
 
-             int imagesIndex = cursor.getColumnIndex(image);
-             byte[] images = cursor.getBlob(imagesIndex);
-/*
+*/
+
+         //  int imagesIndex = cursor.getColumnIndex(image);
+         //   byte[] images = cursor.getBlob(imagesIndex);
+
              int ChaletID = cursor.getInt(0);
               String name = cursor.getString(1);
               int price = cursor.getInt(2);
                String dec = cursor.getString(3);
                String address = cursor.getString(4);
+         //     String imageName = cursor.getString(5);
 
-*/
+               byte[] image = cursor.getBlob(6);
 
-               Chalet chalet = new Chalet( name ,ChaletID,  dec,  address,price , images , imageName);
+
+         //      Chalet chalet = new Chalet( name ,ChaletID,  dec,  address,price , images , imageName);
+
+               Chalet chalet = new Chalet( name , image);
+
 
                chalets.add(chalet);
 

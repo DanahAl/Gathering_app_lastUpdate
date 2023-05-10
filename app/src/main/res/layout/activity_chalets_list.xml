@@ -8,15 +8,15 @@
 
 
 
-<ListView
+    <ListView
 
-android:id="@+id/chaletList"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+        android:id="@+id/chaletList1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
 
-    ></ListView>
+        ></ListView>
     <!---Create chalet list-->
 
 
 
-    </RelativeLayout>
+</RelativeLayout>

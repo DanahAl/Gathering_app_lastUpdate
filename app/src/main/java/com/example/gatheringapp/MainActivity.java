@@ -29,8 +29,26 @@ private ImageButton imageButton;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        /*
         chaletList =(ListView) findViewById(R.id.chaletList);
-        AddButton = (Button) findViewById(R.id.AddButton);
+        ArrayList<Chalet> chalets = new ArrayList<>();
+
+        //AddButton = (Button) findViewById(R.id.AddButton);
+
+
+        ChaletAdaptor chaletAdaptor = new ChaletAdaptor(this , R.layout.item_chalet , chalets);
+
+        chalets.add(new Chalet("chalet1"));
+        chalets.add(new Chalet("chalet1"));
+        chalets.add(new Chalet("chalet1"));
+        chalets.add(new Chalet("chalet1"));
+        chalets.add(new Chalet("chalet1"));
+        chalets.add(new Chalet("chalet1"));
+        chalets.add(new Chalet("chalet1"));
+        chalets.add(new Chalet("chalet1"));
+
+        chaletList.setAdapter(chaletAdaptor);
+*/
 
         db = new DataBaseHelper(this);
 
@@ -38,16 +56,11 @@ private ImageButton imageButton;
 
 
 
-      // ArrayList<Chalet> chalets = db.getAllChalets();
-
-
-/*
-       ChaletAdaptor chaletAdaptor = new ChaletAdaptor(this , R.layout.item_chalet , chalets);
-        chaletList.setAdapter(chaletAdaptor);
-*/
 
 
 
+
+        /*
         AddButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -56,6 +69,10 @@ private ImageButton imageButton;
                 startActivity(intent);
             }
         });
+        */
+
+
+        /*
 
         chaletList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -65,6 +82,7 @@ private ImageButton imageButton;
             }
         });
 
+*/
 
     }
 

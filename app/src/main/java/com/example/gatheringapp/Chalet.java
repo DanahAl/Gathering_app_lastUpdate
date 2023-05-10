@@ -55,6 +55,15 @@ public class Chalet {
 
     }
 
+    public Chalet(String chalet_name) {
+        this.chalet_name = chalet_name;
+    }
+
+    public Chalet(String chalet_name, byte[] image) {
+        this.chalet_name = chalet_name;
+        this.image = image;
+    }
+
     public String getChalet_name() {
         return chalet_name;
     }
