@@ -123,9 +123,9 @@ public class DataBaseHelper extends SQLiteOpenHelper {
            return true;
     }
 
-    public boolean DeleteOne(Chalet chalet) {
+    public boolean DeleteOne(String chalet) {
         SQLiteDatabase db = this.getWritableDatabase();
-        String queryString = "Delete From " + chalet_table + " WHERE " + chalet_ID + " = " + chalet.getChalet_id();
+        String queryString = "Delete From" + chalet_table + " WHERE " + chalet_name + "= '"+chalet+"'";
         Cursor cursor = db.rawQuery(queryString, null);
         if (cursor.moveToFirst()) {
             return true;
@@ -133,6 +133,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
             // nothing happens. no one is added.
             return false;
         }
+
     }
 
 
